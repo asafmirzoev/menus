@@ -1,0 +1,24 @@
+{% extends 'menu/base.html' %}
+
+{% load static %}
+{% load menus %}
+
+{% block title %}{{ menu.name }}{% endblock %}
+
+
+{% block content %}
+<link rel="stylesheet" href="{% static 'css/styles.css' %}">
+<script src="{% static 'js/script.js' %}"></script>
+
+<div class="row">
+    <button class="btn border border-primary shadow-sm rounded" onclick="location.href=`{% url 'menus' %}`"><h3>Все меню</h3></button>
+</div>
+
+<div class="row">
+    <div class="text-center w-70 h-100 p-3">
+        <h2>{{ menu.name }}</h2>
+
+        {% render_menu menu.slug %}
+    </div>
+</div>
+{% endblock %}

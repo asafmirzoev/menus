@@ -1,0 +1,21 @@
+{% extends 'menu/base.html' %}
+
+{% block title %}Список меню{% endblock %}
+
+
+{% block content %}
+
+<div class="row">
+    <div class="text-center w-70 h-100 p-3">
+        <h2>Список меню</h2>
+        <div class="d-grid gap-2 col-6 mt-3">
+            {% for menu in menus %}
+                    <button class="btn btn-block border border-primary shadow-sm rounded" role="button" onclick="location.href=`{% url 'menus' menu.pk %}`">
+                        {{ menu.name }}
+                    </button>
+                    <hr>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+{% endblock %}
